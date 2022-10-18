@@ -7,7 +7,6 @@ class States:
         self.states_data = pandas.read_csv("50_states.csv")
         self.states_list = self.states_data["state"].to_list()
         self.current_state = []
-        self.score = 0
 
     def check_answer(self, player_answer):
         for state in self.states_list:
@@ -16,12 +15,6 @@ class States:
                 return state
         return "incorrect"
 
-    def increase_score(self):
-        self.score += 1
-        return self.score
-
     def give_coordinates(self, state):
         self.current_state = self.states_data[self.states_data["state"] == state]
         return self.current_state
-
-
